@@ -1,0 +1,29 @@
+---
+
+- name: Deploy Jupiter Website
+  hosts: webservers
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: Update EC2 Instance
+      yum:
+        name: "*"
+        state: latest
+        update_cache: yes
+
+    - name: Install Apache Server
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Copy Web Files From S3 Bucket Into the HTML Directory
+      community.aws.s3_sync:
+        bucket: jupiter-project-bucket
+        file_root: /var/www/html
+
+    - name: Start Apache Server, If Not Started
+      service:
+        enabled: yes
+        name: httpd
+        state: started
