@@ -1,2 +1,2 @@
 # ansible-playbooks
-Ansible playbooks for AOS Notes tutorials
+This is the repository for AOS Notes' Ansible playbooks.
