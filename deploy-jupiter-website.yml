@@ -17,12 +17,8 @@
         name: httpd
         state: latest
 
-    - name: Copy Web Files From S3 Bucket Into the HTML Directory
-      s3_sync:
-        bucket: jupiter-project-bucket
-        file_root: /var/www/html
-        region: us-east-1
-        mode: push
+    - name: Copy the Web Files From S3 Bucket Into the HTML Directory
+      command: aws s3 sync s3://jupiter-project-bucket /var/www/html
 
     - name: Start Apache Server, If Not Started
       service:
