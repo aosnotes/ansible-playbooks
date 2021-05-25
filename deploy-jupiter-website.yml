@@ -21,6 +21,7 @@
       s3_sync:
         bucket: jupiter-project-bucket
         file_root: /var/www/html
+        region: us-east-1
 
     - name: Start Apache Server, If Not Started
       service:
