@@ -22,6 +22,7 @@
         bucket: jupiter-project-bucket
         file_root: /var/www/html
         region: us-east-1
+        mode: push
 
     - name: Start Apache Server, If Not Started
       service:
