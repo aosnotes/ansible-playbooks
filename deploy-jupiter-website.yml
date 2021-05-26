@@ -1,7 +1,7 @@
 ---
 
 - name: deploy jupiter website
-  hosts: webservers
+  hosts: all
   become: yes
   become_user: root
 
